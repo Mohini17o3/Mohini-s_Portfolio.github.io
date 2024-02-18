@@ -4,31 +4,38 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <title>Vite App</title>
   </head>
   <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+       
+      </ul>
+    </nav>
+
     <div id="app"></div>
     <canvas id ="bg"></canvas>
     
     <main>
-      <section>
-      <div class="about-me ">
-        <header>
-          <h1>Mohini Upreti</h1>
-          <h2> ✨Welcome to my website!✨</h2>
-        </header>
+      <section id="home">
+      
+      </section>
+
+    <section id="about">
         <h2>About Me</h2>
         <p>
-          Hi I am <strong>Mohini</strong> a passionate , hardworking and dedicated learner currently in my pre-final year of B.Tech in Information Technology . I am currently learning backend development , having completed the fron-end development of the MERN stack and continuously exploring different frameworks and libraries in front-end . I have a good command on Java language and enhancing my problem solving abilities by practising concepts of data structures and algorithms .
+          Hi I am <strong>Mohini</strong> a passionate , hardworking and dedicated learner currently in my pre-final year of B.Tech in Information Technology . I am currently learning backend development , having completed the front-end development of the MERN stack and continuously exploring different frameworks and libraries in front-end . I have a good command on Java language and enhancing my problem solving abilities by practising concepts of data structures and algorithms .
 
         </p>
-      </div>
-  
-      </section>
-      <section class="left skills-grid">
-        <h2>Skills and Technologies I use </h2>
-<div class="skills-container">
- 
+    </section>
+    <section><h2>Skills and Technologies I use </h2></section>
+  <section class="left_skills-grid"> 
   <div>HTML5</div>
   <div>CSS3</div>
   <div>Bootstrap</div>
@@ -44,24 +51,30 @@
   <div>C</div>
   <div>C++</div>
   <div>Java</div>
+  </section>
   <div class="project">
-    <p> You can checkout the practise projects I have made in React , <br>and I am working on some of my own like this portfolio ..Will update here soon </p>
+    <!-- <p> You can checkout the practise projects I have made in React , <br>and I am working on some of my own like this portfolio ..Will update here soon </p> -->
   </div>      
-      </div>
-      </section>
-      <div class="contact-me">
-        <h2>Contact Me</h2>
-        <p>
-          Feel free to get in touch. Whether you have a project in mind or just want to say hi,
-          I'll be happy to hear from you!
-        </p>
-        <div class="contact-options">
-          <div class="email">
-            <a href="mailto:upretimohini.@gmail.com">Let's Connect</a>
-          </div>
-        </div>
       
-    </div>
+      </section>
+      <section id="contact">
+        <div class="contact-me">
+          <h2>Contact Me</h2>
+          <p>
+            Feel free to get in touch. Whether you have a project in mind or just want to say hi,
+            I'll be happy to hear from you!
+          </p>
+        <div class="contact-options">
+              <ul>
+          <li><a href="mailto:upretimohini.@gmail.com"><img src="icons8-email-50.png" alt=""></a></li>  
+                <li><a href="www.linkedin.com/in/mohini-upreti-0064a3255"><img src="icons8-linkedin-50.png" alt="LinkedIn"></a></li>
+                <li><a href="https://github.com/Mohini17o3"><img src="icons8-github-50.png" alt="Github"></a></li>
+              </ul>
+        
+        </div>
+        </div>
+      </section>
+    
   </main>
     <script type="module" src="/main.js"></script>
 
