@@ -2,7 +2,7 @@ import './style.css'
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
-const textToType = `Hi! I am Mohini ,\n a front-end developer`;    
+const textToType = `Hi I am \n Mohini `;    
 const typingSpeed = 100 ;
 const typingTextElement = document.getElementById('home');
 
@@ -98,8 +98,8 @@ function addStar(){
 }
 Array(400).fill().forEach(addStar);    //to specify the amount of stars needed 
 
-const spaceTexture = new THREE.TextureLoader().load('black.png');
-scene.background = spaceTexture;
+scene.background = new THREE.Color(0x000000);
+
 
 //Avatar
 const MohiniTexture  = new THREE.TextureLoader().load('Background.png');

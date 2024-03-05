@@ -12,6 +12,7 @@ canvas{
   width: 100%;
   height: 100%;
   display: block;
+
 }
 
 .email {
@@ -21,7 +22,6 @@ canvas{
 
 .contact-options li {
   display: inline-block;
- 
   padding: 5px;
   margin-right: 10px;
   margin-top: 10px;
@@ -36,6 +36,7 @@ canvas{
 .contact-options img{
   height:30px ;
   width: 30px;
+  background-color: rgba(102, 86, 121, 1); ;
 }
 
 main{
@@ -46,15 +47,16 @@ position: absolute;
  margin : 0px auto;
  padding : 120px 0px;
  display: grid ;
- grid-template-columns : repeat(12 ,1fr);
+ grid-template-columns : repeat(12 ,3fr);
 }
 section{
-  grid-column : 2/8;
+  grid-column : 2/10;
   padding : 1rem;
   background: var(--dark-bg);
   font-size : 1.25rem ;
   line-height : 1.5 ;
   margin-bottom : var(--spacing);
+  width: fit-content;
 }
 
 
@@ -74,21 +76,7 @@ section{
 .left {
   grid-column: 1/6;
 }
-.skills-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
 
-.skills-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  max-width: 800px; /* Adjust as needed */
-  margin: 0 auto;
-  font-weight: bolder;
-}
 
 .project{
   grid-column: 1/-1;
@@ -146,10 +134,12 @@ body.navbar-scrolled .navbar {
   max-width: max-content; /* Adjust as needed */}
 
   #about{
-    background-color: rgba(102, 86, 121, 0.6);
+    background-color: rgba(0, 0, 0, 0.7); /* Translucent black */
+    border: 5px solid rgba(102, 86, 121, 1);
     border-radius: 5px;
   }
   #contact{
-    background-color: rgba(102, 86, 121, 0.6);
+    background-color: rgba(0, 0, 0, 0.7); /* Translucent black */
+    border: 5px solid rgba(102, 86, 121, 1);
     border-radius: 5px;
   }
