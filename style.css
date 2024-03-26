@@ -4,10 +4,7 @@ canvas{
   left : 0 ;
   
 }
-/* html, body {
-  margin: 0;
-  height: 100%;
-} */
+
 #bg {
   width: 100%;
   height: 100%;
@@ -77,20 +74,30 @@ section{
   grid-column: 1/6;
 }
 
-
-.project{
+ #project .projectClass{
   grid-column: 1/-1;
+  margin-top: 100px;
+  margin-bottom: 200px;
 
 }
 
+ .carousel-item h5 {
+  color: black;
+  font-weight: bold;
+}
+.carousel-item p {
+  color: black;
+  font-weight: bold; 
+
+}
 .navbar {
   position: fixed ;
   top: 0;
-  width: 30%;
+  width: max-content;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(102, 86, 121 , 0.7);
-  padding: 10px 0;
+  padding: 10px ;
   z-index: 1000;
   transition: background-color 0.5s ease; 
 }
@@ -98,10 +105,9 @@ section{
 .navbar ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-  
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+  text-align: center;
 }
 
 .navbar a {

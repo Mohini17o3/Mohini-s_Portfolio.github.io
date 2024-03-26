@@ -19,6 +19,10 @@ function typeText(){
   } , typingSpeed);
 }
 window.onload = typeText;
+
+
+
+
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight ,0.1,1000);
@@ -102,9 +106,10 @@ scene.background = new THREE.Color(0x000000);
 
 
 //Avatar
-const MohiniTexture  = new THREE.TextureLoader().load('Background.png');
+const MohiniTexture  = new THREE.TextureLoader().load('new_pic.jpg');
+
 const Mohini = new THREE.Mesh(
-new THREE.BoxGeometry(20, 20, 20),
+new THREE.BoxGeometry(30, 30, 30),
 new THREE.MeshBasicMaterial({
   map: MohiniTexture ,
 })

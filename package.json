@@ -5,8 +5,8 @@
   "homepage": "https://github.com/Mohini17o3/Mohini-s_Portfolio.github.io",
   "type": "module",
   "scripts": {
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -16,6 +16,7 @@
     "vite": "^5.1.0"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "three": "^0.161.0"
   }
 }
