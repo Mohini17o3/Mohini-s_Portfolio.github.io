@@ -21,8 +21,6 @@ function typeText(){
 window.onload = typeText;
 
 
-
-
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight ,0.1,1000);
@@ -106,7 +104,7 @@ scene.background = new THREE.Color(0x000000);
 
 
 //Avatar
-const MohiniTexture  = new THREE.TextureLoader().load('new_pic.jpg');
+const MohiniTexture  = new THREE.TextureLoader().load('./images/new_pic.jpg');
 
 const Mohini = new THREE.Mesh(
 new THREE.BoxGeometry(30, 30, 30),
@@ -130,11 +128,7 @@ if(t<0){
 
   // Move the avatar inwards along the z-axis
   Mohini.position.z = t * 0.1;
-// Mohini.rotation.z += 0.01 ;
 
-// camera.position.z = t * -0.01;
-// camera.position.x = t * -0.0002;
-// camera.position.y = t * -0.0002;
 }
 
 }
@@ -153,19 +147,24 @@ function handleResize() {
 }
 
 window.addEventListener('resize', handleResize);
+let mouse = { x: 0, y: 0 };
 
-function animate(){
+window.addEventListener('mousemove', (event) => {
+  // Normalize mouse position from -1 to 1
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+});
+
+function animate() {
   requestAnimationFrame(animate);
 
-  
-// Mohini.rotation.y += 0.005;
- 
- controls.update();
- starsGroup.children.forEach(star => {
-  star.position.x += 0.1 * Math.sin(Date.now() * 0.001);
-  star.position.y += 0.1 * Math.sin(Date.now() * 0.001);
- });
+  starsGroup.children.forEach(star => {
+    star.position.x += mouse.x * 0.4;
+    star.position.y += mouse.y * 0.3;
+  });
+
+  controls.update();
   renderer.render(scene, camera);
- 
 }
+
 animate();

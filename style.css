@@ -77,18 +77,33 @@ section{
  #project .projectClass{
   grid-column: 1/-1;
   margin-top: 100px;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 
 }
 
- .carousel-item h5 {
-  color: black;
-  font-weight: bold;
+.card {
+  background: #222;
+  border: 1px solid #a624dd;
+  color: rgba(250, 250, 250, 0.8);
+  margin-bottom: 2rem;
 }
-.carousel-item p {
-  color: black;
-  font-weight: bold; 
 
+
+.btn {
+  border: 5px solid;
+  border-image-slice: 1;
+  color: #a624dd;
+  border-image-source:  var(--gradient) !important; 
+  text-decoration: none;
+  transition: all .4s ease;
+}
+
+.btn:hover, .btn:focus {
+  background: var(--gradient) !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 5px solid #fff !important; 
+  box-shadow: #222 1px 0 10px;
+  text-decoration: underline;
 }
 .navbar {
   position: fixed ;
@@ -97,7 +112,7 @@ section{
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(102, 86, 121 , 0.7);
-  padding: 10px ;
+  padding: 5px ;
   z-index: 1000;
   transition: background-color 0.5s ease; 
 }
@@ -108,6 +123,7 @@ section{
   display: grid;
   grid-template-columns: repeat(5, 2fr);
   text-align: center;
+  gap: 4px;
 }
 
 .navbar a {
@@ -135,9 +151,9 @@ body.navbar-scrolled .navbar {
 }
 .left_skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  max-width: max-content; /* Adjust as needed */}
+  max-width: max-content; }
 
   #about{
     background-color: rgba(0, 0, 0, 0.7); /* Translucent black */
