@@ -104,7 +104,7 @@ scene.background = new THREE.Color(0x000000);
 
 
 //Avatar
-const MohiniTexture  = new THREE.TextureLoader().load('./images/new_pic.jpg');
+const MohiniTexture  = new THREE.TextureLoader().load('new_pic.jpg');
 
 const Mohini = new THREE.Mesh(
 new THREE.BoxGeometry(30, 30, 30),
@@ -147,6 +147,8 @@ function handleResize() {
 }
 
 window.addEventListener('resize', handleResize);
+
+// moving stars 
 let mouse = { x: 0, y: 0 };
 
 window.addEventListener('mousemove', (event) => {
@@ -159,8 +161,8 @@ function animate() {
   requestAnimationFrame(animate);
 
   starsGroup.children.forEach(star => {
-    star.position.x += mouse.x * 0.4;
-    star.position.y += mouse.y * 0.3;
+    star.position.x += mouse.x * 0.1;
+    star.position.y += mouse.y * 0.05;
   });
 
   controls.update();

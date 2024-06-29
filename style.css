@@ -2,7 +2,8 @@ canvas{
   position : fixed;
   top : 0 ; 
   left : 0 ;
-  
+  width: 100vw;
+    height: 100vh;
 }
 
 #bg {
@@ -47,7 +48,7 @@ position: absolute;
  grid-template-columns : repeat(12 ,3fr);
 }
 section{
-  grid-column : 2/10;
+  grid-column : 3/12;
   padding : 1rem;
   background: var(--dark-bg);
   font-size : 1.25rem ;
@@ -78,6 +79,7 @@ section{
   grid-column: 1/-1;
   margin-top: 100px;
   margin-bottom: 100px;
+  gap: 7px;
 
 }
 
@@ -86,6 +88,7 @@ section{
   border: 1px solid #a624dd;
   color: rgba(250, 250, 250, 0.8);
   margin-bottom: 2rem;
+
 }
 
 
