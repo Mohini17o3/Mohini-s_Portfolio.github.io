@@ -141,9 +141,20 @@ moveCamera();
 function handleResize() {
   // Update camera aspect ratio and renderer size when the window is resized
   camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
+
+if(camera.aspect < 1) {
+  camera.position.z = 40/camera.aspect;
+  camera.position.x = -3/camera.aspect;
+} else {
+  camera.position.z = 40;
+  camera.position.x = -3;
+
+}
+
 
   renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.updateProjectionMatrix();
+
 }
 
 window.addEventListener('resize', handleResize);
@@ -170,3 +181,20 @@ function animate() {
 }
 
 animate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
