@@ -16,6 +16,7 @@ function typeText(){
       clearInterval(typingInterval);
     }
 
+
   } , typingSpeed);
 }
 window.onload = typeText;
@@ -104,7 +105,7 @@ scene.background = new THREE.Color(0x000000);
 
 
 //Avatar
-const MohiniTexture  = new THREE.TextureLoader().load('new_pic.jpg');
+const MohiniTexture  = new THREE.TextureLoader().load('images/new_pic.jpg');
 
 const Mohini = new THREE.Mesh(
 new THREE.BoxGeometry(30, 30, 30),
