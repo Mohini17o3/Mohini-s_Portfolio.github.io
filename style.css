@@ -1,16 +1,30 @@
+h1{
+  color: #222;
+  font-weight: 800;
+}
+
+*{
+  color: white  ;
+  font-weight:500 ;
+
+}
 canvas{
   position : fixed;
-  top : 0 ; 
-  left : 0 ;
+  margin : 0 ; 
+  padding : 0 ;
   width: 100vw;
   height: 100vh;
   display: flex;
+  z-index: 0;
 }
 
 
 .email {
   display: flex;
   align-items: center;
+}
+contact{
+  font-size: 30px;
 }
 
 .contact-options li {
@@ -24,27 +38,30 @@ canvas{
 }
 
 .contact-options li:hover {
-  background-color: rgba(102, 86, 121, 0.8);
+  background-color: rgba(86, 108, 121, 0.8);
 }
 .contact-options img{
-  height:30px ;
-  width: 30px;
-  background-color: rgba(102, 86, 121, 1); ;
+  height:48px ;
+  width: 48px;
+  border-radius: 10px;
+  padding: 3px;
+  background-color: #5072A7; 
 }
 
 main{
-position: absolute;
+  position: relative;
+  z-index: 1;
  color :white;
  width: 100vw ;
- z-index : 99;
- margin : 0px auto;
- padding : 120px 0px;
+ height: 100vh ;
+ margin : 0;
+ padding :0 ;
  display: grid ;
  grid-template-columns : repeat(12 ,3fr);
 }
 section{
   grid-column : 3/12;
-  padding : 1rem;
+  /* padding : 1rem; */
   font-size : 1.25rem ;
   line-height : 1.5 ;
   width: fit-content;
@@ -54,8 +71,8 @@ section{
 #home{
   font-family: "Playfair Display", serif;
   font-weight :bold;
-  width: 51%;
-  height: 500px;
+  width: 60vw;
+  height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -64,23 +81,11 @@ section{
   overflow: hidden;
   text-align: center;
   line-height: 1;
-  padding: 20px;
+  padding: 7px;
+  color: white;
 }
 
-@media (max-width: 768px) {
-  #home {
-    width: 53%;
-    font-size: 10vw; 
-    padding: 17px; 
-  }
-}
 
-@media (max-width: 480px) {
-  #home {
-    font-size: 13vw; 
-    padding: 10px; 
-  }
-}
 
 .left {
   grid-column: 1/6;
@@ -89,14 +94,16 @@ section{
  #project .projectClass{
   grid-column: 1/-1;
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 400px;
   gap: 7px;
+  height: 100vh;
+  width: 100vw;
 
 }
 
 .card {
-  background: #222;
-  border: 1px solid #a624dd;
+  background-color:  rgb(80, 114, 167 , 0.7);
+  border: solid 5px #222;
   color: rgba(250, 250, 250, 0.8);
   margin-bottom: 2rem;
 
@@ -106,7 +113,7 @@ section{
 .btn {
   border: 5px solid;
   border-image-slice: 1;
-  color: #a624dd;
+  color: #101213;
   border-image-source:  var(--gradient) !important; 
   text-decoration: none;
   transition: all .4s ease;
@@ -121,11 +128,12 @@ section{
 }
 .navbar {
   position: fixed ;
-  top: 0;
+  margin-top: 7px;
+  border-radius: 30px;
   width: max-content;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(102, 86, 121 , 0.7);
+  background-color: #5072A7;
   z-index: 1000;
   transition: background-color 0.5s ease; 
   padding: 10px 20px;
@@ -144,50 +152,134 @@ section{
   text-decoration: none;
   color: white;
   font-weight: bold;
+  font-size: 18px;
 }
 
 .navbar a:hover {
   color: rgb(6, 4, 4);
 }
 body.navbar-scrolled .navbar {
-  background-color: rgba(150, 111, 214, 0.9); 
+  background-color:rgb(113, 141, 162 , 0.5) ; 
 }
 
 .left_skills-grid div{
  font-weight: bolder;
- padding: 10px 20px;
- text-align: center;
  cursor: pointer;
- border: 1px solid #966fd6;
- background-color:  rgba(102, 86, 121 );
+ background-color:  rgb(80, 114, 167 , 0.7);
+ border: solid 5px #222;
  border-radius: 5px;
- 
+ color: white;
+ display: flex ;
+ align-items: center;
+ justify-content: center;
+
 }
 .left_skills-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  padding: 5%;
+  width: 100vw;
+  height: 100vh;
    }
 
-   @media (max-width: 740px) {
-    .left_skills-grid
-      { 
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px
   
-  };
-   }
   #about{
-    background-color: rgba(0, 0, 0, 0.7); /* Translucent black */
-    border: 5px solid rgba(102, 86, 121, 1);
+    margin-top: 20px;
     border-radius: 5px;
-    padding: 4%;
+    height: 100vh;
+    width: 100vw;
+    padding: 5%;
+    font-size : 27px;
+    color: #5072A7;
   }
   #contact{
-    background-color: rgba(0, 0, 0, 0.7); 
-    border: 5px solid rgba(102, 86, 121, 1);
     border-radius: 5px;
     padding: 4%;  
+    height: 100vh;
+    width: 100vw;
+    font-size: 30px;
   }
+
+
+/* Media Query for Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+  #home {
+    width: 90vw;
+    font-size: 6vw;
+    padding: 5px;
+  }
+
+  main {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  section {
+    grid-column: 1 / -1;
+    padding: 20px;
+    width: 100vw;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  #about, #contact {
+    font-size: 1rem;
+    padding: 3%;
+    width: 100vw;
+    height: auto;
+  }
+
+  .left_skills-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    padding: 3%;
+  }
+
+  #project .projectClass {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    height: auto;
+    width: 100vw;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 16px;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    border: 3px solid;
+  }
+
+  .card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Media Query for Tablets (up to 768px) */
+@media (max-width: 768px) {
+  #home {
+    width: 70vw;
+    font-size: 8vw;
+    padding: 10px;
+  }
+
+  section {
+    grid-column: 2/12;
+  }
+
+  .navbar ul {
+    gap: 10px;
+  }
+
+  .left_skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}

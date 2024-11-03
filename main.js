@@ -2,7 +2,7 @@ import './style.css'
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
-const textToType = `Hi I am \n Mohini `;    
+const textToType = `Hi I am Mohini `;    
 const typingSpeed = 100 ;
 const typingTextElement = document.getElementById('home');
 
@@ -65,15 +65,12 @@ renderer.render(scene, camera);
 
 
 
-const pointLight = new THREE.PointLight(0xff00ff);  // point light is like light in all directions ,like a ligt bulb , give positions to the light , its in the center right now when just instantiated .
+const pointLight = new THREE.PointLight(0xffffff);  // point light is like light in all directions ,like a ligt bulb , give positions to the light , its in the center right now when just instantiated .
 pointLight.position.set(5, 5, 5 );
 
-const ambientLight = new THREE.AmbientLight(0xff00ff);
+const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
-const lightHelper = new THREE.PointLightHelper(pointLight);
-const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(lightHelper, gridHelper);
 
 const controls = new OrbitControls(camera , renderer.domElement);
 // #2 .renderer.render(scene, camera);
@@ -86,14 +83,14 @@ const starsGroup = new THREE.Group();
 scene.add(starsGroup);
 
 function addStar(){
-  const geometry = new THREE.SphereGeometry(0.25 , 24 , 24);
+  const geometry = new THREE.SphereGeometry(2 , 24 , 24);
   const material = new THREE.MeshStandardMaterial( {
-    color : '#FFFFFF'
+    color : '#7CB9E8'
   });
   const star = new THREE.Mesh(geometry, material);
 
   // now we need to randomly position these stars, so we generate random values of x , y and z ..
-  const[x,y,z] =Array(3).fill().map(()=> THREE.MathUtils.randFloatSpread(100));
+  const[x,y,z] =Array(3).fill().map(()=> THREE.MathUtils.randFloatSpread(1000));
 
   star.position.set(x,y,z);
   starsGroup.add(star);
@@ -101,14 +98,28 @@ function addStar(){
 }
 Array(400).fill().forEach(addStar);    //to specify the amount of stars needed 
 
-scene.background = new THREE.Color(0x000000);
+scene.background = new THREE.Color('#A9A9A9');
 
+function animateStars() {
+  starsGroup.children.forEach(star => {
+    star.position.y += 0.5; // Move stars towards the camera
+
+    // Reset stars' position when they come too close to the camera
+    if (star.position.y > 100) {
+      star.position.y = -100;
+      
+      
+      star.position.x = THREE.MathUtils.randFloatSpread(200);
+      star.position.y = THREE.MathUtils.randFloatSpread(200);
+    }
+  });
+}
 
 //Avatar
-const MohiniTexture  = new THREE.TextureLoader().load('images/new_pic.jpg');
+const MohiniTexture = new THREE.TextureLoader().load('images/new_pic.jpg');
 
 const Mohini = new THREE.Mesh(
-new THREE.BoxGeometry(30, 30, 30),
+new THREE.BoxGeometry(30, 30 ,0),
 new THREE.MeshBasicMaterial({
   map: MohiniTexture ,
 })
@@ -122,13 +133,12 @@ function moveCamera(){
 const t = document.body.getBoundingClientRect().top;
 
 
-// Mohini.rotation.y += 0.01 ;
 if(t<0){
   // Rotate the avatar around the z-axis
   Mohini.rotation.z = t * 0.001;
 
   // Move the avatar inwards along the z-axis
-  Mohini.position.z = t * 0.1;
+  Mohini.position.y = -t * 0.1;
 
 }
 
@@ -164,19 +174,13 @@ window.addEventListener('resize', handleResize);
 let mouse = { x: 0, y: 0 };
 
 window.addEventListener('mousemove', (event) => {
-  // Normalize mouse position from -1 to 1
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;  
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;  
 });
 
 function animate() {
   requestAnimationFrame(animate);
-
-  starsGroup.children.forEach(star => {
-    star.position.x += mouse.x * 0.1;
-    star.position.y += mouse.y * 0.05;
-  });
-
+  animateStars();
   controls.update();
   renderer.render(scene, camera);
 }

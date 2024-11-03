@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "mohini-s-portfolio": "file:",
     "three": "^0.161.0"
   }
 }
