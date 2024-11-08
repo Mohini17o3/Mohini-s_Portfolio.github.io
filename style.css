@@ -1,11 +1,14 @@
 h1{
-  color: #222;
-  font-weight: 800;
+  color: #cec8c8;
+  ;
+  font-weight: 900;
 }
 
 *{
   color: white  ;
-  font-weight:500 ;
+  font-weight:900 ;
+ font-family: "Doto", sans-serif;
+
 
 }
 canvas{
@@ -69,22 +72,17 @@ section{
 
 
 #home{
-  font-family: "Playfair Display", serif;
-  font-weight :bold;
-  width: 60vw;
+  width: 100vw;
   height: 100vh;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10vw;
+  font-size: 140px;
   overflow: hidden;
   text-align: center;
-  line-height: 1;
   padding: 7px;
-  color: white;
+  color: rgb(224, 227, 231);
 }
-
 
 
 .left {
@@ -103,7 +101,7 @@ section{
 
 .card {
   background-color:  rgb(80, 114, 167 , 0.7);
-  border: solid 5px #222;
+  border: solid 5px #cec8c8;
   color: rgba(250, 250, 250, 0.8);
   margin-bottom: 2rem;
 
@@ -166,7 +164,7 @@ body.navbar-scrolled .navbar {
  font-weight: bolder;
  cursor: pointer;
  background-color:  rgb(80, 114, 167 , 0.7);
- border: solid 5px #222;
+ border: solid 5px #cec8c8;
  border-radius: 5px;
  color: white;
  display: flex ;
@@ -191,9 +189,10 @@ body.navbar-scrolled .navbar {
     width: 100vw;
     padding: 5%;
     font-size : 27px;
-    color: #5072A7;
+    line-height: 60px;
   }
   #contact{
+
     border-radius: 5px;
     padding: 4%;  
     height: 100vh;
@@ -204,10 +203,17 @@ body.navbar-scrolled .navbar {
 
 /* Media Query for Mobile Devices (up to 480px) */
 @media (max-width: 480px) {
+  h1{
+    margin-left: 3px;
+  }
   #home {
-    width: 90vw;
+    width: 100vw;
     font-size: 6vw;
     padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content
+    : center;
   }
 
   main {
@@ -226,16 +232,17 @@ body.navbar-scrolled .navbar {
 
   #about, #contact {
     font-size: 1rem;
-    padding: 3%;
+    padding: 4%;
     width: 100vw;
     height: auto;
+    
   }
 
   .left_skills-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 10px;
-    padding: 3%;
+    padding: 1%;
   }
 
   #project .projectClass {
@@ -245,10 +252,19 @@ body.navbar-scrolled .navbar {
     width: 100vw;
   }
 
+  .navbar{
+    margin-left: 5px;
+    margin-right: 10px;
+  }
+
   .navbar ul {
-    flex-direction: column;
-    gap: 5px;
-    font-size: 16px;
+    flex-direction: row;
+    gap: 1px;
+  }
+  .navbar li a{
+    flex-direction: row;
+    gap: 1px;
+    font-size: 13px;
   }
 
   .btn {
@@ -265,14 +281,20 @@ body.navbar-scrolled .navbar {
 /* Media Query for Tablets (up to 768px) */
 @media (max-width: 768px) {
   #home {
-    width: 70vw;
-    font-size: 8vw;
+    width: 100vw;
+    font-size: 20vw;
     padding: 10px;
+  }
+
+  #about {
+    height: auto;
   }
 
   section {
     grid-column: 2/12;
+    gap: 5%;
   }
+
 
   .navbar ul {
     gap: 10px;
@@ -282,4 +304,14 @@ body.navbar-scrolled .navbar {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
+
+  #contact {
+    padding: 4%;
+    width: 100%;  
+    font-size: 1.2rem;  
+    background-color: rgba(80, 114, 167, 0.3);
+    margin: 0 auto;  
+  }
+
+  
 }

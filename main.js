@@ -1,15 +1,22 @@
 import './style.css'
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 
-const textToType = `Hi I am Mohini `;    
+const textToType = `Welcome to my Website <3 `;    
 const typingSpeed = 100 ;
 const typingTextElement = document.getElementById('home');
+
+
 
 function typeText(){
   let index = 0 ;
   const typingInterval = setInterval( ()=>{
-    typingTextElement.textContent = textToType.slice(0,index);
+    typingTextElement.textContent = textToType.slice(0, index); // Update the span's content
+    index++;
+ 
     index++;
 
     if(index >textToType.length) {
@@ -22,6 +29,7 @@ function typeText(){
 window.onload = typeText;
 
 
+// create the scene
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight ,0.1,1000);
@@ -64,6 +72,7 @@ renderer.render(scene, camera);
   } )
 
 
+  //Lighting
 
 const pointLight = new THREE.PointLight(0xffffff);  // point light is like light in all directions ,like a ligt bulb , give positions to the light , its in the center right now when just instantiated .
 pointLight.position.set(5, 5, 5 );
@@ -83,9 +92,12 @@ const starsGroup = new THREE.Group();
 scene.add(starsGroup);
 
 function addStar(){
-  const geometry = new THREE.SphereGeometry(2 , 24 , 24);
+  const geometry = new THREE.SphereGeometry(2 , 24 , 35);
   const material = new THREE.MeshStandardMaterial( {
-    color : '#7CB9E8'
+    color : '#FFFFFF',
+    emissive :'#000000',
+    roughness : '0.222' ,
+    metalness : '0.197', 
   });
   const star = new THREE.Mesh(geometry, material);
 
@@ -95,10 +107,15 @@ function addStar(){
   star.position.set(x,y,z);
   starsGroup.add(star);
 
-}
-Array(400).fill().forEach(addStar);    //to specify the amount of stars needed 
 
-scene.background = new THREE.Color('#A9A9A9');
+}
+Array(200).fill().forEach(addStar);    //to specify the amount of stars needed 
+
+
+
+// scene.background = new THREE.Color('#A9A9A9');
+
+
 
 function animateStars() {
   starsGroup.children.forEach(star => {
@@ -120,14 +137,22 @@ const MohiniTexture = new THREE.TextureLoader().load('images/new_pic.jpg');
 
 const Mohini = new THREE.Mesh(
 new THREE.BoxGeometry(30, 30 ,0),
-new THREE.MeshBasicMaterial({
+new THREE.MeshMatcapMaterial({
   map: MohiniTexture ,
+  color :'#FFFFFF',
 })
 );
-scene.add(Mohini);
+// Mohini.layers.set(1);
+// scene.add(Mohini);
 Mohini.position.z = -2;
 Mohini.position.y = 3;
 Mohini.position.x = 20;
+
+
+
+// ripple 
+
+
 
 function moveCamera(){
 const t = document.body.getBoundingClientRect().top;
@@ -148,6 +173,22 @@ document.body.onscroll = moveCamera;
 moveCamera();
 
 
+const renderScene = new RenderPass(scene, camera);
+const bloomPass = new UnrealBloomPass(
+  new THREE.Vector2(window.innerWidth, window.innerHeight),
+  1.5,
+  0.4,
+  0.85
+);
+bloomPass.threshold = 0;
+bloomPass.strength = 3; //intensity of glow
+bloomPass.radius = 0;
+const bloomComposer = new EffectComposer(renderer);
+bloomComposer.setSize(window.innerWidth, window.innerHeight);
+bloomComposer.renderToScreen = true;
+
+bloomComposer.addPass(renderScene);
+ bloomComposer.addPass(bloomPass);
 
 function handleResize() {
   // Update camera aspect ratio and renderer size when the window is resized
@@ -180,9 +221,19 @@ window.addEventListener('mousemove', (event) => {
 
 function animate() {
   requestAnimationFrame(animate);
+
+
   animateStars();
+
   controls.update();
+
+  renderer.clear(); 
   renderer.render(scene, camera);
+
+
+  bloomComposer.render();
+
+  
 }
 
 animate();
