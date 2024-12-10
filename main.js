@@ -5,7 +5,7 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 
-const textToType = `Welcome to my Website <3 `;    
+const textToType = `Hey there !`;    
 const typingSpeed = 100 ;
 const typingTextElement = document.getElementById('home');
 
@@ -16,9 +16,6 @@ function typeText(){
   const typingInterval = setInterval( ()=>{
     typingTextElement.textContent = textToType.slice(0, index); // Update the span's content
     index++;
- 
-    index++;
-
     if(index >textToType.length) {
       clearInterval(typingInterval);
     }
