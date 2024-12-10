@@ -64,7 +64,6 @@ main{
  width: 100vw ;
  height: 100vh ;
  margin : 0;
- padding : calc(10%-13px);
  display: grid ;
  grid-template-columns : repeat(12 ,3fr);
 }
@@ -177,7 +176,7 @@ body.navbar-scrolled .navbar {
   padding: 4%;
   width: 100%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto 0 auto ;
 }
 
 .left_skills-grid h1 {
@@ -449,7 +448,6 @@ text-align: center;  }
   .project-card {
     flex-direction: column;
     align-items: center;
-    width: calc(100% -15px);
 
   }
 
@@ -480,12 +478,4 @@ text-align: center;  }
 
 
 
-@media (min-width: 899px) {
- 
-.left_skills-grid{
-  margin-bottom: 300px !important;
-}
 
-
-
-}
