@@ -1,3 +1,8 @@
+body {
+ display: flex;
+ justify-content: center;
+}
+
 h1{
   color: #cec8c8;
   ;
@@ -279,7 +284,7 @@ body.navbar-scrolled .navbar {
 
   #about {
     font-size: 0.9rem;
-    padding: 4%;
+    padding: 2%;
     width: 100vw;
     height: max-content;
     
@@ -396,10 +401,15 @@ text-align: center;  }
 
 /* Media Query for Tablets (up to 768px) */
 @media (max-width: 768px) {
+
+  body{
+    overflow-x: hidden;
+  }
+
   #home {
     width: 100vw;
     font-size: 20vw;
-    padding: 25px;
+    padding: 2%;
     height: 90vh;
   }
 
@@ -408,7 +418,7 @@ text-align: center;  }
     grid-template-rows: auto auto;
     gap: 30px;
     grid-template-columns: 1fr;
-    padding: 15%;
+    padding: 4%;
     height: max-content;
 
   } 
